@@ -1,8 +1,6 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
+        res=0
         for i in range(len(nums)):
-            x=nums.pop(i)
-            if x not in nums:
-                return x
-            else:
-                nums.insert(i,x)
+            res^=nums[i]
+        return res
