@@ -5,5 +5,4 @@ class Solution:
             total_count+=count
             if total_count>=len(arr)/2:
                 return index+1
-        return 0
             
