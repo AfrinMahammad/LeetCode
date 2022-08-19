@@ -1,9 +1,7 @@
 /* Write your PL/SQL query statement below */
-select id,
-case
-    when p_id is null then 'Root'
-    when id in (select distinct(p_id) from Tree) then 'Inner'
-    else 'Leaf' 
-end as type
-from Tree
-order by id asc;
+select id,'Root' as type from Tree where p_id is null
+union
+select id,'Inner' as type from Tree where id in (select p_id from Tree where p_id is not null) and p_id is not null
+union
+select id,'Leaf' as type from Tree where id not in (select p_id from Tree where p_id is not null)  and p_id is not null
+order by id asc ;
