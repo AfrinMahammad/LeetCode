@@ -4,8 +4,13 @@ class Solution:
         if n==1:
             return True
         l=[]
+        flag=0
         for i in str(n):
             l.append(i)
+            if i in ['2','4','6','8']:
+                flag=1
+        if flag==0:
+            return False
         p=permutations(l,len(l))
         for i in list(p):
             if i[0]=='0':
