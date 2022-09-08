@@ -4,4 +4,11 @@ class Solution:
             return 0
         elif n==1:
             return 1
-        return self.fib(n-1)+self.fib(n-2)
+        else:
+            t1,t2=0,1
+            res=0
+            for i in range(1,n):
+                res=t1+t2
+                t1=t2
+                t2=res
+            return res
