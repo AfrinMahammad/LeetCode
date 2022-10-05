@@ -5,9 +5,8 @@ class Solution:
         elif n==1:
             return True
         else:
-            t=1
-            while t<n:
-                t=t*4
-                if t==n:
+            while n>0:
+                n=n/4
+                if n==1:
                     return True
             return False
